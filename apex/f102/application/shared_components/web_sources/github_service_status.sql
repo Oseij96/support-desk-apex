@@ -1,0 +1,202 @@
+prompt --application/shared_components/web_sources/github_service_status
+begin
+--   Manifest
+--     WEB SOURCE: GitHub Service Status
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2026.03.30'
+,p_release=>'26.1.5'
+,p_default_workspace_id=>9210439005001343
+,p_default_application_id=>102
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_MYAPPWS'
+);
+wwv_flow_imp_shared.create_web_source_module(
+ p_id=>wwv_flow_imp.id(32916413833476633)
+,p_name=>'GitHub Service Status'
+,p_static_id=>'github-service-status'
+,p_web_source_type=>'NATIVE_HTTP'
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_remote_server_id=>32912079688476594
+,p_url_path_prefix=>'/summary.json'
+,p_timeout=>10
+,p_version_scn=>'SH256:TfCBaNnHY1cKsu0okrXPKyHeFHcFGUwDJRMztvCJ-BA'
+);
+wwv_flow_imp_shared.create_data_profile(
+ p_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'GitHub Service Status'
+,p_format=>'JSON'
+,p_row_selector=>'components'
+,p_use_raw_json_selectors=>false
+,p_is_single_row=>false
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32914981111476626)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'CREATED_AT'
+,p_static_id=>'created-at'
+,p_sequence=>9
+,p_column_type=>'DATA'
+,p_data_type=>'TIMESTAMP WITH TIME ZONE'
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SS.FF9TZR'
+,p_has_time_zone=>true
+,p_selector=>'created_at'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32915849354476629)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'DESCRIPTION'
+,p_static_id=>'description'
+,p_sequence=>12
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>32767
+,p_selector=>'description'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32913198293476621)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'GROUP_'
+,p_static_id=>'group'
+,p_sequence=>3
+,p_column_type=>'DATA'
+,p_data_type=>'BOOLEAN'
+,p_selector=>'group'
+,p_remote_data_type=>'boolean'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32914071486476624)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'GROUP_ID'
+,p_static_id=>'group-id'
+,p_sequence=>6
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>32767
+,p_selector=>'group_id'
+,p_remote_data_type=>'null'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32912598139476619)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'ID'
+,p_static_id=>'id'
+,p_sequence=>1
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>32767
+,p_selector=>'id'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32912846751476621)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'NAME'
+,p_static_id=>'name'
+,p_sequence=>2
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>32767
+,p_selector=>'name'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32916106315476629)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'ONLY_SHOW_IF_DEGRADED'
+,p_static_id=>'only-show-if-degraded'
+,p_sequence=>13
+,p_column_type=>'DATA'
+,p_data_type=>'BOOLEAN'
+,p_selector=>'only_show_if_degraded'
+,p_remote_data_type=>'boolean'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32913778066476623)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'PAGE_ID'
+,p_static_id=>'page-id'
+,p_sequence=>5
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>32767
+,p_selector=>'page_id'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32914355220476624)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'POSITION'
+,p_static_id=>'position'
+,p_sequence=>7
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_selector=>'position'
+,p_remote_data_type=>'number'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32914614229476625)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'SHOWCASE'
+,p_static_id=>'showcase'
+,p_sequence=>8
+,p_column_type=>'DATA'
+,p_data_type=>'BOOLEAN'
+,p_selector=>'showcase'
+,p_remote_data_type=>'boolean'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32915257805476627)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'START_DATE'
+,p_static_id=>'start-date'
+,p_sequence=>10
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_format_mask=>'YYYY"-"MM"-"DD'
+,p_has_time_zone=>true
+,p_selector=>'start_date'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32913447573476622)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'STATUS'
+,p_static_id=>'status'
+,p_sequence=>4
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>32767
+,p_selector=>'status'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_data_profile_col(
+ p_id=>wwv_flow_imp.id(32915564145476628)
+,p_data_profile_id=>wwv_flow_imp.id(32912347648476608)
+,p_name=>'UPDATED_AT'
+,p_static_id=>'updated-at'
+,p_sequence=>11
+,p_column_type=>'DATA'
+,p_data_type=>'TIMESTAMP WITH TIME ZONE'
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SS.FF9TZR'
+,p_has_time_zone=>true
+,p_selector=>'updated_at'
+,p_remote_data_type=>'string'
+);
+wwv_flow_imp_shared.create_web_source_operation(
+ p_id=>wwv_flow_imp.id(32916695499476667)
+,p_web_src_module_id=>wwv_flow_imp.id(32916413833476633)
+,p_static_id=>'get'
+,p_operation=>'GET'
+,p_database_operation=>'FETCH_COLLECTION'
+,p_url_pattern=>'.'
+,p_force_error_for_http_404=>false
+,p_allow_fetch_all_rows=>false
+,p_caching=>'ALL_USERS'
+,p_invalidate_when=>'1'
+);
+wwv_flow_imp.component_end;
+end;
+/
